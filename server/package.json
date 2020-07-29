@@ -1,0 +1,11 @@
+{
+  "name": "stockswebsocketdemoserver",
+  "version": "1.0.0",
+  "description": "This is a demo server that serves example stocks data over WebSocket.",
+  "main": "server.js",
+  "author": "LOSTMOA LIMITED",
+  "license": "MIT",
+  "dependencies": {
+    "ws": "^7.2.1"
+  }
+}
