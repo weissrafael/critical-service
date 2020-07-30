@@ -1,0 +1,32 @@
+version: "3.8"
+
+services:
+  client:
+    image: node:12.17.0
+    restart: always
+    ports:
+      - "3000:3000"
+    working_dir: /client
+    volumes:
+      - ./client:/client
+    entrypoint: ["npm", "start"]
+    links:
+      - server
+    networks:
+      - webappnetwork
+    stdin_open: true
+  server:
+    image: node:12.17.0
+    restart: always
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./server:/server
+    entrypoint: ["npm", "start"]
+    working_dir: /server
+    networks:
+      - webappnetwork
+
+networks:
+  webappnetwork:
+    driver: bridge
