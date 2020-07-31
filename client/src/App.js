@@ -1,8 +1,10 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import logo from "./logo.svg";
+import "./App.css";
+import useWebsocket from "./hooks/useWebsocket";
 
 function App() {
+  useWebsocket();
   return (
     <div className="App">
       <header className="App-header">
