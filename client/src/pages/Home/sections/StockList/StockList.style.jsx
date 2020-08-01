@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {spacing, text} from "../../../../styles/styleGuide";
+import {colors, spacing, text} from "../../../../styles/styleGuide";
 
 export const StocksContainer = styled.div`
   display: flex;
@@ -7,19 +7,27 @@ export const StocksContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 500px;
+  max-width: 512px;
+  margin-top: ${spacing.large};
 `
 
-export const ConnectionHeader = styled.div`
+export const StocksHeader = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
   width: 100%;
-  border-bottom: 1px solid black;
-  padding: ${spacing.medium} 0;
 `
 
-export const Title = styled.span`
+export const HeaderTitle = styled.span`
   font-size: ${text.paragraph};
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  justify-content: center;
+  border-right: 1px solid ${colors.lightGray};
+  border-bottom: 1px solid ${colors.lightGray};
+`
+
+export const CompanyHeaderTitle = styled(HeaderTitle)`
+  flex: 2;
 `

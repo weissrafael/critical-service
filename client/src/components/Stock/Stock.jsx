@@ -7,14 +7,12 @@ export default function Stock ({ stock }) {
   if(!subscribed) return null;
   return (
     <StockContainer>
-      <StockNames>
-        <Ticker>
-          {symbol}
-        </Ticker>
-        <CompanyName>
-          {companyName}
-        </CompanyName>
-      </StockNames>
+      <CompanyName>
+        {companyName}
+      </CompanyName>
+      <Ticker>
+        {symbol}
+      </Ticker>
       <PriceBox>
         <Price>
           {price}

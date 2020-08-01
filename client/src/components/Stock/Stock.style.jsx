@@ -4,7 +4,6 @@ import {screens, spacing, colors, text} from "../../styles/styleGuide";
 export const StockContainer = styled.div`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
   align-items: center;
   width: 100%;
 `
@@ -14,10 +13,21 @@ export const StockNames = styled.div`
   flex-direction: column;
 `
 
-export const PriceBox = styled.div`
+export const TableCell = styled.div`
   display: flex;
+  flex: 1;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-end;
+  align-items: center;
+  border-right: 1px solid ${colors.lightGray};
+  border-bottom: 1px solid ${colors.lightGray};
+  height: 32px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+`
+
+export const PriceBox = styled(TableCell)`
   align-items: center;
 `
 
@@ -26,13 +36,16 @@ export const Price = styled.span`
   color: ${colors.primaryText};
 `
 
-export const Ticker = styled.span`
+export const Ticker = styled(TableCell)`
   font-size: ${text.paragraph};
   color: ${colors.primaryText};
+  justify-content: flex-end;
 `
 
 
-export const CompanyName = styled.span`
-  font-size: ${text.bodySmall};
+export const CompanyName = styled(TableCell)`
+  font-size: ${text.paragraph};
   color: ${colors.gray};
+  justify-content: flex-start;
+  flex: 2;
 `

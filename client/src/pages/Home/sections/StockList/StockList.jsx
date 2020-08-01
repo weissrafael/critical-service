@@ -1,23 +1,23 @@
 import React from "react";
-import useWebsocket from "../../../../hooks/useWebsocket";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
-import {StocksContainer, ConnectionHeader, Title} from "./StockList.style";
-import ConnectionStatus from "../../../../components/ConnectionStatus";
+import {CompanyHeaderTitle, HeaderTitle, StocksContainer, StocksHeader} from "./StockList.style";
 
 export default function StockList() {
-  const { connected } = useWebsocket();
   const { stocks, supportedStocks, subscribe, unsubscribe } = useStocks();
-  console.log("stonks", supportedStocks, stocks);
-
   return (
     <StocksContainer>
-      <ConnectionHeader>
-        <Title>
-          My Stocks
-        </Title>
-        <ConnectionStatus connected={connected}/>
-      </ConnectionHeader>
+      <StocksHeader>
+        <CompanyHeaderTitle>
+          Company Name
+        </CompanyHeaderTitle>
+        <HeaderTitle>
+          Stock Ticker
+        </HeaderTitle>
+        <HeaderTitle>
+          Price
+        </HeaderTitle>
+      </StocksHeader>
       {supportedStocks.map((stock) => {
         return (
           <Stock
