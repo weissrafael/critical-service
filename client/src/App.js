@@ -7,7 +7,7 @@ import useStocks from "./hooks/useStocks";
 function App() {
   const { connected } = useWebsocket();
   const { stocks, supportedStocks, subscribe } = useStocks();
-  console.log("stonks", supportedStocks, stocks);
+  // console.log("stonks", supportedStocks, stocks);
 
   return (
     <div className="App">

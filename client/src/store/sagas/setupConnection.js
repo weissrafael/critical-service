@@ -6,7 +6,11 @@ import {
   createConnection,
   setConnection,
 } from "../reducers/connection";
-import { SUBSCRIBE, updateSubscriptions } from "../reducers/stocks";
+import {
+  SUBSCRIBE,
+  updateStocks,
+  handleStocksUpdatesEvent,
+} from "../reducers/stocks";
 
 const EVENT_CONNECTED = "connected";
 const STOCKS_UPDATE = "stocks-update";
@@ -33,14 +37,12 @@ export function* watchEvents(eventChannel) {
   while (true) {
     const rawEvent = yield take(eventChannel);
     const event = JSON.parse(rawEvent);
-    console.log(event);
     switch (event.event) {
       case EVENT_CONNECTED:
         yield put(createConnection(event));
         break;
       case STOCKS_UPDATE:
-        console.log("atualizando");
-      // yield put(updateStocks(event))
+        yield put(handleStocksUpdatesEvent(event));
       default:
     }
   }
@@ -63,16 +65,14 @@ function* configConnectionSaga() {
 function* subscribeStockSaga({ stocksToSubscribe }) {
   const { connection } = yield select((store) => store.connection);
   const { stocks, supportedStocks } = yield select((store) => store.stocks);
-  console.log("aqui");
   const filteredStocks = stocksToSubscribe.filter((stock) => {
     return supportedStocks.includes(stock) && !stocks[stock].subscribed;
   });
-  console.log(filteredStocks);
   if (filteredStocks.length > 0) {
     filteredStocks.forEach((stock) => {
       stocks[stock].subscribed = true;
     });
-    yield put(updateSubscriptions(stocks));
+    yield put(updateStocks(stocks));
     const payload = {
       event: "subscribe",
       stocks: filteredStocks,
