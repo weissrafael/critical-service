@@ -1,21 +1,20 @@
 import React from "react";
-import {CompanyName, StockContainer, Ticker} from "./StockToFollow.style";
+import {CompanyName, StockRow, Ticker} from "./StockToFollow.style";
+import CheckBox from "../Checkbox";
 
 export default function StockToFollow ({ stock }) {
   const {symbol, companyName, subscribed} = stock;
 
-  if(!subscribed) return null;
-
   return (
-    <StockContainer>
+    <StockRow>
       <CompanyName>
         {companyName}
       </CompanyName>
       <Ticker>
         {symbol}
       </Ticker>
-
-    </StockContainer>
+      <CheckBox/>
+    </StockRow>
   )
 }
 

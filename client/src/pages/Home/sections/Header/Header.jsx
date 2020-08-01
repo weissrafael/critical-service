@@ -23,7 +23,7 @@ export default function () {
       <AnimatedModal
         closeModal={() => setSettingsIsOpen(false)}
         isOpen={settingsIsOpen}>
-        <Settings/>
+        {settingsIsOpen && <Settings/>}
       </AnimatedModal>
     </NavBar>
   );

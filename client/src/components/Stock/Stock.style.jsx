@@ -31,14 +31,21 @@ export const TableCell = styled.div`
 export const PriceBox = styled(TableCell)`
   ${({ profit }) => `
      align-items: center;
+     background-color: ${profit === 'negative' ?
+                        colors.negative :
+                        profit === 'positive' ?
+                        colors.positive : colors.white};
+     transition: background-color ${profit !== 'neutral' ? '0.2s' : '0.6s'}; ease-out;
   `}
 `
 
 export const Price = styled.span`
   ${({ profit }) => `
      align-items: center;
+     color: ${profit === 'neutral' ? colors.byneOrange : colors.white};
      font-weight: ${fontWeights.bold};
      font-size: ${text.paragraph};
+     transition: color ${profit !== 'neutral' ? '0s' : '0.6s'}; ease-out;
   `}
 `
 

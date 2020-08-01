@@ -11,6 +11,9 @@ export default function Stock ({ stock }) {
   useEffect(() => {
     if(price && previousPrice) {
       setProfitStatus(price >= previousPrice ? 'positive' : 'negative')
+      setTimeout(()=>{
+        setProfitStatus('neutral')
+      }, 400)
     }
   }, [price]);
 
