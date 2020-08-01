@@ -7,7 +7,7 @@ export const StocksContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 512px;
+  max-width: 576px;
   margin-top: ${spacing.large};
 `
 
@@ -23,9 +23,11 @@ export const HeaderTitle = styled.span`
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: center;
+  justify-content: flex-start;
+  
   border-right: 1px solid ${colors.lightGray};
   border-bottom: 1px solid ${colors.lightGray};
+  padding: ${spacing.xSmall} ${spacing.small};
 `
 
 export const CompanyHeaderTitle = styled(HeaderTitle)`

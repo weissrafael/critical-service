@@ -4,24 +4,28 @@ import {fontWeights, text, spacing, colors, screens} from "../../../../styles/st
 export const NavBar = styled.div`
   display: flex;
   width: 100%;
-  justify-content: space-between;
+  justify-content: center;
   height: 64px;
   align-items: center;
   border-bottom: 1px solid ${colors.lightGray};
 `
 
+export const NavBarContainer = styled.div`
+  display: flex;
+  width: 100%;
+  max-width: 576px;
+  justify-content: space-between;
+  align-items: center;
+`
+
 export const LogoContainer = styled.div`
-  margin-left: ${spacing.medium};
   display: flex;
   flex-direction: row;
   align-items: center;
-  @media (min-width: ${screens.medium}) {
-    margin-left: ${spacing.xLarge};
-  }
 `
 
 export const Logo = styled.img`
-  width: 64px;
+  width: auto;
   height: 64px;
 `
 
