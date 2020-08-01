@@ -9,8 +9,6 @@ export default function Stock ({ stock }) {
   const previousPrice = usePrevious(price);
 
   useEffect(() => {
-    console.log('previous', previousPrice);
-    console.log('next', price);
     if(price && previousPrice) {
       setProfitStatus(price >= previousPrice ? 'positive' : 'negative')
       setTimeout(()=> {setProfitStatus('neutral')}, 300)

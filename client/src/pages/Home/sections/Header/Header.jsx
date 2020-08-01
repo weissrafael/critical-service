@@ -4,10 +4,12 @@ import SettingsIcon from '@material-ui/icons/Settings';
 import ConnectionStatus from "../../../../components/ConnectionStatus/ConnectionStatus";
 import useWebsocket from "../../../../hooks/useWebsocket";
 import logo from '../../../../assets/images/logo.png'
-// import AnimatedModal from "../../../../components/AnimatedModal";
+import AnimatedModal from "../../../../components/AnimatedModal";
+import Settings from "../../../../components/Settings";
 
 export default function () {
   const { connected } = useWebsocket();
+  const [settingsIsOpen, setSettingsIsOpen] = useState(false);
 
   return (
     <NavBar>
@@ -18,13 +20,13 @@ export default function () {
         </LogoContainer>
         <ConnectionStatus connected={connected}/>
         <ButtonsWrapper>
-          <SettingsIcon onClick={() => console.log('open stocks modal')}/>
+          <SettingsIcon onClick={() => setSettingsIsOpen(true)}/>
         </ButtonsWrapper>
       </NavBarContainer>
       <AnimatedModal
-        closeModal={}
-        isOpen={}>
-
+        closeModal={() => setSettingsIsOpen(false)}
+        isOpen={settingsIsOpen}>
+        <Settings/>
       </AnimatedModal>
     </NavBar>
   );
