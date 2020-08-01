@@ -1,8 +1,9 @@
-import { eventChannel, END } from "redux-saga";
+import { eventChannel } from "redux-saga";
 import { takeLatest, take, call, race, put, select } from "redux-saga/effects";
 import { w3cwebsocket as WebSocket } from "websocket";
 import {
   CONFIG,
+  configConnection,
   createConnection,
   setConnection,
 } from "../reducers/connection";
@@ -15,6 +16,7 @@ import {
 
 const EVENT_CONNECTED = "connected";
 const STOCKS_UPDATE = "stocks-update";
+const CONNECTION_CLOSED = "connection-closed";
 
 function createWebsocketConnection(client) {
   try {
@@ -25,6 +27,11 @@ function createWebsocketConnection(client) {
 
       client.onopen = () => {
         console.log("WebSocket Client Connected");
+      };
+
+      client.onclose = () => {
+        const event = { event: CONNECTION_CLOSED };
+        emit(JSON.stringify(event));
       };
 
       const unsubscribe = () => {};
@@ -44,7 +51,12 @@ export function* watchEvents(eventChannel) {
         break;
       case STOCKS_UPDATE:
         yield put(handleStocksUpdatesEvent(event));
+        break;
+      case CONNECTION_CLOSED:
+        yield put(configConnection());
+        break;
       default:
+        break;
     }
   }
 }

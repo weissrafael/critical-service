@@ -18,7 +18,6 @@ function* createConnectionSaga({ event }) {
 }
 
 function* updateStocksSaga({ event: { stocks: stocksToUpdate } }) {
-  console.log(stocksToUpdate);
   const { stocks } = yield select((store) => store.stocks);
   Object.entries(stocksToUpdate).forEach(([stock, price]) => {
     stocks[stock].basePrice = price;
