@@ -4,7 +4,9 @@ import {screens, spacing, colors, text} from "../../styles/styleGuide";
 export const StockContainer = styled.div`
   display: flex;
   flex-direction: row;
-  align-items: space-between;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
 `
 
 export const StockNames = styled.div`

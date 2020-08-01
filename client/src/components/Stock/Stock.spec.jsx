@@ -2,12 +2,17 @@ import React from "react";
 import { render } from "@testing-library/react";
 import GetAppIcon from '@material-ui/icons/GetApp';
 
-import Stock from "./NavButton";
+import Stock from "./Stock";
 
-describe("<NavButton />", () => {
+describe("<Stock />", () => {
   it("should match snapshot", () => {
-    const dummyFunction = () => {}
-    const { container } = render(<Stock text="myBtn" onClick={dummyFunction} Icon={GetAppIcon}/>);
+    const stock = {
+      symbol: 'IEX',
+      companyName: 'Test Company',
+      basePrice: 0,
+      subscribed: true
+    }
+    const { container } = render(<Stock stock={{}}/>);
     expect(container).toMatchSnapshot();
   });
 });
