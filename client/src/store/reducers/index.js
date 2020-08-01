@@ -1,5 +1,7 @@
 import { combineReducers } from 'redux'
 
-const rootReducer = combineReducers({})
+import connection from "./connection"
+
+const rootReducer = combineReducers({connection})
 
 export default rootReducer

@@ -4,7 +4,8 @@ import "./App.css";
 import useWebsocket from "./hooks/useWebsocket";
 
 function App() {
-  const { availableStocks } = useWebsocket();
+  const { connected } = useWebsocket();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -20,9 +21,7 @@ function App() {
         >
           Learn React
         </a>
-        {availableStocks.map((stock) => {
-          return <div>{stock}</div>;
-        })}
+        <div>{`Conection State: ${connected} `}</div>
       </header>
     </div>
   );

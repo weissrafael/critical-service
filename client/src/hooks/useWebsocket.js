@@ -1,31 +1,17 @@
-import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux"
+import { configConnection } from '../store/reducers/connection'
+
 
 export default function useWebsocket() {
-  const [client, setClient] = useState(null);
-  const [availableStocks, setAvailableStocks] = useState([]);
+  const dispatch = useDispatch()
+  const { connected } = useSelector(store => store.connection)
 
-  function handleConnected({supportedSymbols}) {
-    setAvailableStocks(supportedSymbols)
-  }
-  useEffect(() => {
-    setClient(new W3CWebSocket("ws://127.0.0.1:8080"));
-  }, []);
 
   useEffect(() => {
-    if (client) {
-      client.onopen = () => {
-        console.log("WebSocket Client Connected");
-      };
-      client.onmessage = (message) => {
-        const data = JSON.parse(message.data);
-        switch (data.event) {
-          case "connected":
-            handleConnected(data);
-        }
-      };
-    }
-  }, [client]);
+    console.log("dispatching")
+    dispatch(configConnection())
+  }, [dispatch]);
 
-  return { availableStocks };
+  return { connected };
 }
