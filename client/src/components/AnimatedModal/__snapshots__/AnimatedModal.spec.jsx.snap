@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<AnimatedModal /> should match snapshot if is closed 1`] = `
+<div>
+  <div
+    class="sc-AxjAm horUeu"
+  >
+    <div
+      class="sc-AxirZ bbGxNM"
+    >
+      <div
+        class="sc-AxiKw dLqinz"
+      />
+    </div>
+  </div>
+</div>
+`;
+
+exports[`<AnimatedModal /> should match snapshot if is open 1`] = `
+<div>
+  <div
+    class="sc-AxjAm czIcey"
+  >
+    <div
+      class="sc-AxirZ WDNph"
+    >
+      <div
+        class="sc-AxiKw fVhjZd"
+      />
+    </div>
+  </div>
+</div>
+`;

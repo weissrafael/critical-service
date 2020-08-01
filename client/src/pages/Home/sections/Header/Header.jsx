@@ -21,11 +21,11 @@ export default function () {
           <SettingsIcon onClick={() => console.log('open stocks modal')}/>
         </ButtonsWrapper>
       </NavBarContainer>
-      {/*<AnimatedModal*/}
-      {/*  closeModal={}*/}
-      {/*  isOpen={}>*/}
-      {/*  */}
-      {/*</AnimatedModal>*/}
+      <AnimatedModal
+        closeModal={}
+        isOpen={}>
+
+      </AnimatedModal>
     </NavBar>
   );
 }

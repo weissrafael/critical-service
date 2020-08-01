@@ -35,7 +35,6 @@ export const Title = styled.span`
   font-weight: ${fontWeights.bold};
   color: ${colors.primaryText};
   @media (min-width: ${screens.medium}) {
-    margin-left: ${spacing.xLarge};
     font-size: ${text.h[5].size};
   }
 `
