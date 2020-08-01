@@ -1,6 +1,7 @@
 import React from "react";
 import useWebsocket from "../../../../hooks/useWebsocket";
 import useStocks from "../../../../hooks/useStocks";
+import Stock from "../../../../components/Stock";
 
 export default function StockList() {
   const { connected } = useWebsocket();
@@ -12,17 +13,10 @@ export default function StockList() {
       <div>{`Conection State: ${connected} `}</div>
       {supportedStocks.map((stock) => {
         return (
-          <div key={stock}>
-            <div
-              onClick={() => {
-                (stocks[stock].subscribed) ? unsubscribe([stock]): subscribe([stock]);
-              }}
-            >
-              {stock} - {stocks[stock].companyName} US {stocks[stock].basePrice}{" "}
-              | Sub: {stocks[stock].subscribed.toString()}
-            </div>
-            <br />
-          </div>
+          <Stock
+            key={stock}
+            stock={stocks[stock]}
+          />
         );
       })}
     </div>
