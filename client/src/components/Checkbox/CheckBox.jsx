@@ -1,12 +1,11 @@
 import React from "react";
-import {CheckBoxStyle, CheckBoxWrapper} from "./CheckBox.style";
-import CheckIcon from "@material-ui/icons/Check";
+import {CheckBoxStyle, CheckBoxWrapper, CheckIconStyle} from "./CheckBox.style";
 
 export default function CheckBox ({ check }) {
   return (
     <CheckBoxWrapper>
-      <CheckBoxStyle>
-        <CheckIcon style={{ fontSize: 16 }}/>
+      <CheckBoxStyle check={check}>
+        <CheckIconStyle check={check}/>
       </CheckBoxStyle>
     </CheckBoxWrapper>
   )

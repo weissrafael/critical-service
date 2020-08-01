@@ -19,7 +19,7 @@ export default function Settings () {
         <CheckBox/>
       </SettingsHeader>
       {supportedStocks.map((stock, key) => {
-        unsubscribe([stock])
+        // unsubscribe([stock])
         return (
           <StockToFollow
             key={stock}

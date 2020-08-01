@@ -6,14 +6,14 @@ export default function StockToFollow ({ stock }) {
   const {symbol, companyName, subscribed} = stock;
 
   return (
-    <StockRow>
-      <CompanyName>
+    <StockRow check={subscribed}>
+      <CompanyName check={subscribed}>
         {companyName}
       </CompanyName>
-      <Ticker>
+      <Ticker check={subscribed}>
         {symbol}
       </Ticker>
-      <CheckBox/>
+      <CheckBox check={subscribed}/>
     </StockRow>
   )
 }
