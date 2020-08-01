@@ -1,4 +1,6 @@
 export const INITIAL_INGEST = "stocks/INITIAL_INGEST";
+export const SUBSCRIBE = "stocks/SUBSCRIBE";
+export const UPDATE_SUBSCRIPTIONS = "stocks/UPDATE_SUBSCRIPTIONS";
 
 const INITIAL_VALUES = {
   stocks: {},
@@ -11,7 +13,12 @@ export default function reducer(state = INITIAL_VALUES, action) {
       return {
         ...state,
         stocks: action.stocks,
-        supportedStocks: action.supportedStocks
+        supportedStocks: action.supportedStocks,
+      };
+    case UPDATE_SUBSCRIPTIONS:
+      return {
+        ...state,
+        stocks: action.stocks,
       };
     default:
       return state;
@@ -23,5 +30,19 @@ export function initialIngestStocks(stocks, supportedStocks) {
     type: INITIAL_INGEST,
     stocks,
     supportedStocks,
+  };
+}
+
+export function subscribeStock(stocksToSubscribe) {
+  console.log("disparado", stocksToSubscribe)
+  return {
+    type: SUBSCRIBE,
+    stocksToSubscribe,
+  };
+}
+export function updateSubscriptions(stocks) {
+  return {
+    type: UPDATE_SUBSCRIPTIONS,
+    stocks,
   };
 }

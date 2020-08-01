@@ -6,26 +6,27 @@ import useStocks from "./hooks/useStocks";
 
 function App() {
   const { connected } = useWebsocket();
-  const { stocks, supportedStocks } = useStocks();
+  const { stocks, supportedStocks, subscribe } = useStocks();
   console.log("stonks", supportedStocks, stocks);
 
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-        <div>{`Conection State: ${connected} `}</div>
-      </header>
+      <div>{`Conection State: ${connected} `}</div>
+      {supportedStocks.map((stock) => {
+        return (
+          <div key={stock}>
+            <div
+              onClick={() => {
+                subscribe([stock]);
+              }}
+            >
+              {stock} - {stocks[stock].companyName} US {stocks[stock].basePrice}{" "}
+              | Sub: {stocks[stock].subscribed.toString()}
+            </div>
+            <br />
+          </div>
+        );
+      })}
     </div>
   );
 }

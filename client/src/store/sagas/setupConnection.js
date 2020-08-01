@@ -1,13 +1,18 @@
 import { eventChannel, END } from "redux-saga";
-import { takeLatest, take, call, race, put } from "redux-saga/effects";
-import { w3cwebsocket as W3CWebSocket } from "websocket";
-import { CONFIG, createConnection } from "../reducers/connection";
+import { takeLatest, take, call, race, put, select } from "redux-saga/effects";
+import { w3cwebsocket as WebSocket } from "websocket";
+import {
+  CONFIG,
+  createConnection,
+  setConnection,
+} from "../reducers/connection";
+import { SUBSCRIBE, updateSubscriptions } from "../reducers/stocks";
 
-const EVENT_CONNECTED = "connected"
+const EVENT_CONNECTED = "connected";
+const STOCKS_UPDATE = "stocks-update";
 
 function createWebsocketConnection(client) {
   try {
-    const client = new W3CWebSocket("ws://127.0.0.1:8080");
     return eventChannel((emit) => {
       client.onmessage = (event) => {
         emit(event.data);
@@ -28,13 +33,16 @@ export function* watchEvents(eventChannel) {
   while (true) {
     const rawEvent = yield take(eventChannel);
     const event = JSON.parse(rawEvent);
+    console.log(event);
     switch (event.event) {
       case EVENT_CONNECTED:
         yield put(createConnection(event));
         break;
+      case STOCKS_UPDATE:
+        console.log("atualizando");
+      // yield put(updateStocks(event))
       default:
     }
-    // yield put({ type: WS_NEW_EVENT, payload: JSON.parse(event) })
   }
 }
 
@@ -44,12 +52,36 @@ function* configConnectionSaga() {
 
     const eventChannel = yield call(createWebsocketConnection, client);
 
+    yield put(setConnection(client));
+
     yield race({
       task: call(watchEvents, eventChannel),
     });
   } catch (error) {}
 }
 
+function* subscribeStockSaga({ stocksToSubscribe }) {
+  const { connection } = yield select((store) => store.connection);
+  const { stocks, supportedStocks } = yield select((store) => store.stocks);
+  console.log("aqui");
+  const filteredStocks = stocksToSubscribe.filter((stock) => {
+    return supportedStocks.includes(stock) && !stocks[stock].subscribed;
+  });
+  console.log(filteredStocks);
+  if (filteredStocks.length > 0) {
+    filteredStocks.forEach((stock) => {
+      stocks[stock].subscribed = true;
+    });
+    yield put(updateSubscriptions(stocks));
+    const payload = {
+      event: "subscribe",
+      stocks: filteredStocks,
+    };
+    connection.send(JSON.stringify(payload));
+  }
+}
+
 export default function* () {
   yield takeLatest(CONFIG, configConnectionSaga);
+  yield takeLatest(SUBSCRIBE, subscribeStockSaga);
 }
