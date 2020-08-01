@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import { subscribeStock } from "../store/reducers/stocks";
+import { subscribeStock, unsubscribeStock } from "../store/reducers/stocks";
 
 export default function useStocks() {
   const dispatch = useDispatch();
@@ -8,5 +8,10 @@ export default function useStocks() {
   function subscribe(stocksName) {
     dispatch(subscribeStock(stocksName));
   }
-  return { stocks, supportedStocks, subscribe };
+
+  function unsubscribe(stocksName) {
+    dispatch(unsubscribeStock(stocksName));
+  }
+
+  return { stocks, supportedStocks, subscribe, unsubscribe };
 }

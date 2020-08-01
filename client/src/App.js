@@ -1,12 +1,11 @@
 import React from "react";
-import logo from "./logo.svg";
 import "./App.css";
 import useWebsocket from "./hooks/useWebsocket";
 import useStocks from "./hooks/useStocks";
 
 function App() {
   const { connected } = useWebsocket();
-  const { stocks, supportedStocks, subscribe } = useStocks();
+  const { stocks, supportedStocks, subscribe, unsubscribe } = useStocks();
   // console.log("stonks", supportedStocks, stocks);
 
   return (
@@ -17,7 +16,7 @@ function App() {
           <div key={stock}>
             <div
               onClick={() => {
-                subscribe([stock]);
+                (stocks[stock].subscribed) ? unsubscribe([stock]): subscribe([stock]);
               }}
             >
               {stock} - {stocks[stock].companyName} US {stocks[stock].basePrice}{" "}

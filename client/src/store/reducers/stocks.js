@@ -1,5 +1,6 @@
 export const INITIAL_INGEST = "stocks/INITIAL_INGEST";
 export const SUBSCRIBE = "stocks/SUBSCRIBE";
+export const UNSUBSCRIBE = "stocks/UNSUBSCRIBE";
 export const HANDLE_STOCKS_UPDATES_EVENT = "stock/HANDLE_STOCKS_UPDATES_EVENT";
 export const UPDATE = "stocks/UPDATE";
 
@@ -40,6 +41,14 @@ export function subscribeStock(stocksToSubscribe) {
     stocksToSubscribe,
   };
 }
+
+export function unsubscribeStock(stocksToUnsubscribe) {
+  return {
+    type: UNSUBSCRIBE,
+    stocksToUnsubscribe,
+  };
+}
+
 export function updateStocks(stocks) {
   return {
     type: UPDATE,

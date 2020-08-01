@@ -8,6 +8,7 @@ import {
 } from "../reducers/connection";
 import {
   SUBSCRIBE,
+  UNSUBSCRIBE,
   updateStocks,
   handleStocksUpdatesEvent,
 } from "../reducers/stocks";
@@ -81,7 +82,27 @@ function* subscribeStockSaga({ stocksToSubscribe }) {
   }
 }
 
+function* unsubscribeStockSaga({ stocksToUnsubscribe }) {
+  const { connection } = yield select((store) => store.connection);
+  const { stocks, supportedStocks } = yield select((store) => store.stocks);
+  const filteredStocks = stocksToUnsubscribe.filter((stock) => {
+    return supportedStocks.includes(stock) && stocks[stock].subscribed;
+  });
+  if (filteredStocks.length > 0) {
+    filteredStocks.forEach((stock) => {
+      stocks[stock].subscribed = false;
+    });
+    yield put(updateStocks(stocks));
+    const payload = {
+      event: "unsubscribe",
+      stocks: filteredStocks,
+    };
+    connection.send(JSON.stringify(payload));
+  }
+}
+
 export default function* () {
   yield takeLatest(CONFIG, configConnectionSaga);
   yield takeLatest(SUBSCRIBE, subscribeStockSaga);
+  yield takeLatest(UNSUBSCRIBE, unsubscribeStockSaga);
 }
