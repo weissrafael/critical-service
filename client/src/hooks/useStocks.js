@@ -1,6 +1,6 @@
 import { useSelector } from "react-redux";
 
 export default function useStocks() {
-  const { stocks } = useSelector((store) => store.stocks);
-  return { stocks };
+  const { stocks, supportedStocks } = useSelector((store) => store.stocks);
+  return { stocks, supportedStocks };
 }
