@@ -6,5 +6,5 @@ export const SettingsContainer = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
-  background-color: ${colors.lightGray};
+  background-color: ${colors.byneGray};
 `

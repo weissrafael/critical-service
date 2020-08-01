@@ -19,8 +19,8 @@ export const TableCell = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-right: 1px solid ${colors.lightGray};
-  border-bottom: 1px solid ${colors.lightGray};
+  border-right: 1px solid ${colors.byneGray};
+  border-bottom: 1px solid ${colors.byneGray};
   height: 32px;
   white-space: nowrap;
   overflow: hidden;

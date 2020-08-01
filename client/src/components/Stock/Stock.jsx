@@ -11,7 +11,6 @@ export default function Stock ({ stock }) {
   useEffect(() => {
     if(price && previousPrice) {
       setProfitStatus(price >= previousPrice ? 'positive' : 'negative')
-      setTimeout(()=> {setProfitStatus('neutral')}, 300)
     }
   }, [price]);
 
@@ -26,7 +25,7 @@ export default function Stock ({ stock }) {
         {symbol}
       </Ticker>
       <PriceBox profit={profitStatus}>
-        <Price>
+        <Price profit={profitStatus}>
           {price}
         </Price>
       </PriceBox>

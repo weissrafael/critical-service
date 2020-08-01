@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {spacing, colors, text} from "../../styles/styleGuide";
+import {spacing, colors, text, fontWeights} from "../../styles/styleGuide";
 
 export const StockContainer = styled.div`
   display: flex;
@@ -19,8 +19,8 @@ export const TableCell = styled.div`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  border-right: 1px solid ${colors.lightGray};
-  border-bottom: 1px solid ${colors.lightGray};
+  border-right: 1px solid ${colors.byneGray};
+  border-bottom: 1px solid ${colors.byneGray};
   height: 32px;
   white-space: nowrap;
   overflow: hidden;
@@ -31,17 +31,15 @@ export const TableCell = styled.div`
 export const PriceBox = styled(TableCell)`
   ${({ profit }) => `
      align-items: center;
-     background-color: ${profit === 'negative' ? 
-                        colors.white : 
-                        profit === 'positive' ? 
-                        colors.white : colors.white};
-     transition: background-color 0.3s ease-out;
   `}
 `
 
 export const Price = styled.span`
-  font-size: ${text.paragraph};
-  color: ${colors.primaryText};
+  ${({ profit }) => `
+     align-items: center;
+     font-weight: ${fontWeights.bold};
+     font-size: ${text.paragraph};
+  `}
 `
 
 export const Ticker = styled(TableCell)`

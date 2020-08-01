@@ -7,7 +7,7 @@ export const NavBar = styled.div`
   justify-content: center;
   height: 64px;
   align-items: center;
-  border-bottom: 1px solid ${colors.lightGray};
+  border-bottom: 1px solid ${colors.byneGray};
 `
 
 export const NavBarContainer = styled.div`

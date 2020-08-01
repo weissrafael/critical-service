@@ -5,6 +5,10 @@ export const colors = {
   positive: '#28d499',
   negative: '#ee3957',
 
+  byneBlue: '#33C3C4',
+  byneOrange: '#F97A41',
+  byneGray: '#99B5CA',
+
   black: '#000000',
   white: '#ffffff',
   darkWhite: '#eeeeee',

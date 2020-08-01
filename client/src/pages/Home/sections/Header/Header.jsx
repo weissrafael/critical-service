@@ -14,10 +14,7 @@ export default function () {
   return (
     <NavBar>
       <NavBarContainer>
-        <LogoContainer>
-          <Logo src={logo}/>
-          <Title>Stocks Wallet</Title>
-        </LogoContainer>
+        <Logo src={logo}/>
         <ConnectionStatus connected={connected}/>
         <ButtonsWrapper>
           <SettingsIcon onClick={() => setSettingsIsOpen(true)}/>
