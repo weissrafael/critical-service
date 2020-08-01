@@ -2,7 +2,8 @@ import React from "react";
 import useWebsocket from "../../../../hooks/useWebsocket";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
-import {StocksContainer, ConnectionHeader} from "./StockList.style";
+import {StocksContainer, ConnectionHeader, Title} from "./StockList.style";
+import ConnectionStatus from "../../../../components/ConnectionStatus";
 
 export default function StockList() {
   const { connected } = useWebsocket();
@@ -12,7 +13,10 @@ export default function StockList() {
   return (
     <StocksContainer>
       <ConnectionHeader>
-        {`Online: ${connected} `}
+        <Title>
+          My Stocks
+        </Title>
+        <ConnectionStatus connected={connected}/>
       </ConnectionHeader>
       {supportedStocks.map((stock) => {
         return (

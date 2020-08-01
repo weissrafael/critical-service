@@ -2,6 +2,9 @@ export const colors = {
   primaryText: '#36363b',
   modalBackground: 'rgba(0,0,0,0.5)',
 
+  positive: '#28d499',
+  negative: '#ee3957',
+
   black: '#000000',
   white: '#ffffff',
   darkWhite: '#eeeeee',
