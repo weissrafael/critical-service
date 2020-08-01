@@ -28,7 +28,14 @@ export const TableCell = styled.div`
 `
 
 export const PriceBox = styled(TableCell)`
-  align-items: center;
+  ${({ profit }) => `
+     align-items: center;
+     background-color: ${profit === 'negative' ? 
+                        colors.negative : 
+                        profit === 'positive' ? 
+                        colors.positive : colors.white};
+     transition: background-color 0.3s ease-out;
+  `}
 `
 
 export const Price = styled.span`

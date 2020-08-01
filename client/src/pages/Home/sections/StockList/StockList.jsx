@@ -18,7 +18,8 @@ export default function StockList() {
           Price
         </HeaderTitle>
       </StocksHeader>
-      {supportedStocks.map((stock) => {
+      {supportedStocks.map((stock, key) => {
+        if (key>6) unsubscribe([stock])
         return (
           <Stock
             key={stock}
