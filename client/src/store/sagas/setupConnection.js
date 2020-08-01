@@ -39,7 +39,6 @@ export function* watchEvents(eventChannel) {
 }
 
 function* configConnectionSaga() {
-  console.log("iniciando");
   try {
     const client = new WebSocket("ws://127.0.0.1:8080");
 

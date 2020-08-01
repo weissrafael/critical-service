@@ -2,9 +2,12 @@ import React from "react";
 import logo from "./logo.svg";
 import "./App.css";
 import useWebsocket from "./hooks/useWebsocket";
+import useStocks from "./hooks/useStocks";
 
 function App() {
   const { connected } = useWebsocket();
+  const { stocks } = useStocks();
+  console.log("stonks", stocks);
 
   return (
     <div className="App">

@@ -9,7 +9,6 @@ export default function useWebsocket() {
 
 
   useEffect(() => {
-    console.log("dispatching")
     dispatch(configConnection())
   }, [dispatch]);
 
