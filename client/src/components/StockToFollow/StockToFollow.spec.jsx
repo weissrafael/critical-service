@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "@testing-library/react";
+import {render} from "@testing-library/react";
 import StockToFollow from "./StockToFollow";
 import {Provider} from "react-redux";
 import {createMockedStore} from "../../utils/testMocks";
@@ -10,7 +10,7 @@ describe("<Stock />", () => {
       symbol: 'IEX',
       companyName: 'Test Company',
       basePrice: 0,
-      subscribed: true
+      subscribed: ''
     }
     const store = createMockedStore();
     const { container } = render(

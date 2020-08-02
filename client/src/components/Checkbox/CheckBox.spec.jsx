@@ -5,7 +5,7 @@ import CheckBox from "./CheckBox";
 
 describe("<Stock />", () => {
   it("should match snapshot", () => {
-    const { container } = render(<CheckBox check={false}/>);
+    const { container } = render(<CheckBox check={''}/>);
     expect(container).toMatchSnapshot();
   });
 });

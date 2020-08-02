@@ -5,7 +5,7 @@ import StockToFollow from "../StockToFollow";
 import CheckBox from "../Checkbox";
 import {colors, spacing} from "../../styles/styleGuide";
 
-export default function Settings () {
+export default function Settings ({allCheckForTestOnly}) {
   const [allChecked, setAllChecked] = useState(false);
   const { stocks, supportedStocks, unsubscribe, subscribe} = useStocks();
   const unsubscribedStocks = supportedStocks.filter(stock => {
@@ -25,7 +25,7 @@ export default function Settings () {
         <HeaderTitle>
           Ticker
         </HeaderTitle>
-        <CheckBox style={{marginRight: spacing.medium}} bgColor={colors.byneOrange} check={allChecked}/>
+        <CheckBox style={{marginRight: spacing.medium}} bgColor={colors.byneOrange} check={allCheckForTestOnly || allChecked}/>
       </SettingsHeader>
       <SettingsBody>
         {supportedStocks.map(stock => {
