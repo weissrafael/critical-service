@@ -31,6 +31,7 @@ export const Logo = styled.img`
   width: auto;
   height: 64px;
   position: relative;
+  margin-right: ${spacing.small};
   left: 0;
   @media (min-width: ${screens.medium}) {
     left: -11px;
@@ -55,7 +56,8 @@ const IconStyles = `
   margin-right: ${spacing.medium};
   cursor: pointer;
   color: ${colors.byneGray};
-  margin-left: ${spacing.medium};
+  margin-left: ${spacing.large};
+  font-size: 32px !important;
   &:hover {
     color: ${colors.byneOrange};  
   }

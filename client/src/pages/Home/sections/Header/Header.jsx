@@ -22,8 +22,10 @@ export default function Header ({viewMode, changeView}) {
   return (
     <NavBar>
       <NavBarContainer>
-        <Logo src={logo}/>
-        <ConnectionStatus connected={connected}/>
+        <LogoContainer>
+          <Logo src={logo}/>
+          <ConnectionStatus connected={connected}/>
+        </LogoContainer>
         <ButtonsWrapper>
           {viewMode === 'cards' ? (
             <ViewListIconStyled onClick={changeView}/>
