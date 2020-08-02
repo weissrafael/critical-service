@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colors, layoutMaxWidth, spacing, text} from "../../../../styles/styleGuide";
+import {colors, fontWeights, layoutMaxWidth, radius, screens, spacing, text} from "../../../../styles/styleGuide";
 
 export const StocksContainer = styled.div`
   display: flex;
@@ -9,6 +9,35 @@ export const StocksContainer = styled.div`
   width: 100%;
   max-width: ${layoutMaxWidth};
   margin-top: ${spacing.large};
+`
+
+export const WarningBanner = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  padding: ${spacing.medium};
+  @media (min-width: ${screens.medium}) {
+    padding: ${spacing.large};
+  }
+`
+
+export const WarningBannerContent = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: ${layoutMaxWidth};
+  background-color: ${colors.byneGray};
+  color: ${colors.white};
+  font-weight: ${fontWeights.bold};
+  padding: ${spacing.small};
+  border-radius: ${radius};
+  @media (min-width: ${screens.medium}) {
+    padding: ${spacing.medium};
+  }
 `
 
 export const StocksHeader = styled.div`
