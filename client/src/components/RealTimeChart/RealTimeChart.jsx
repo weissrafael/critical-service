@@ -2,7 +2,7 @@ import React, {useEffect, useRef, useState} from 'react';
 import Chartjs from 'chart.js';
 import {colors} from "../../styles/styleGuide";
 
-const RealTimeChart = ({symbol, companyName, basePrice}) => {
+const RealTimeChart = ({basePrice}) => {
   const [chartInstance, setChartInstance] = useState(null);
   const [data, setData] = useState([]);
   const chartContainer = useRef(null);
@@ -28,7 +28,7 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
       responsive: true,
       title: {
         display: false,
-        text: companyName
+        text: ''
       },
       tooltips: {
         mode: 'index',

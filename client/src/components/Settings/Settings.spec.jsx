@@ -6,12 +6,6 @@ import Settings from "./Stock";
 
 describe("<Stock />", () => {
   it("should match snapshot", () => {
-    const stock = {
-      symbol: 'IEX',
-      companyName: 'Test Company',
-      basePrice: 0,
-      subscribed: true
-    }
     const { container } = render(<Settings stock={{}}/>);
     expect(container).toMatchSnapshot();
   });
