@@ -10,6 +10,10 @@ export const NavBar = styled.div`
   justify-content: center;
   height: 64px;
   align-items: center;
+  position: fixed;
+  z-index: 10;
+  top: 0;
+  background-color: ${colors.white};
   box-shadow: ${shadows.shadowDown4};
 `
 

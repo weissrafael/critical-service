@@ -2,7 +2,7 @@ import React, {useState} from "react";
 import Header from "./sections/Header";
 import StockCards from "./sections/StockCards";
 import StockList from "./sections/StockList";
-import { MainWrapper } from "./Home.style";
+import {HomeBody, MainWrapper} from "./Home.style";
 
 export default function Home() {
   const [viewMode, setViewMode] = useState('cards');
@@ -14,11 +14,13 @@ export default function Home() {
   return (
     <MainWrapper>
       <Header viewMode={viewMode} changeView={changeView}/>
-      {viewMode === 'cards' ? (
-        <StockCards/>
-      ) : (
-        <StockList/>
-      )}
+      <HomeBody>
+        {viewMode === 'cards' ? (
+          <StockCards/>
+        ) : (
+          <StockList/>
+        )}
+      </HomeBody>
     </MainWrapper>
   );
 }
