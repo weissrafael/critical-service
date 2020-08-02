@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {spacing, colors, text, fontWeights} from "../../styles/styleGuide";
+import {spacing, colors, text, fontWeights, layoutMaxWidth, shadows} from "../../styles/styleGuide";
 
 export const StockContainer = styled.div`
   display: flex;
@@ -11,8 +11,11 @@ export const StockContainer = styled.div`
 export const CardContainer = styled.div`
   display: flex;
   flex-direction: column;
-  width: 100%;
-  border: 1px solid ${colors.byneOrange};
+  width: 47%;
+  margin-bottom: ${spacing.medium};
+  margin-left: ${spacing.medium};
+  box-shadow: ${shadows.shadowDown4};
+  border: 1px solid ${colors.darkWhite};
 `
 
 export const ChartHeader = styled.div`
@@ -22,9 +25,9 @@ export const ChartHeader = styled.div`
   width: 100%;
 `
 
-export const StockNames = styled.div`
-  display: flex;
-  flex-direction: column;
+export const ChartContainer = styled.div`
+  height: 100%;
+  width: 100%;
 `
 
 export const TableCell = styled.div`

@@ -25,7 +25,7 @@ const RealTimeChart = ({stock}) => {
     options: {
       responsive: true,
       title: {
-        display: true,
+        display: false,
         text: companyName
       },
       tooltips: {
@@ -79,11 +79,7 @@ const RealTimeChart = ({stock}) => {
       updateData()
   }, [price]);
 
-  return (
-    <ChartContainer>
-      <canvas ref={chartContainer} />
-    </ChartContainer>
-  );
+  return <canvas ref={chartContainer} />;
 };
 
 export default RealTimeChart;

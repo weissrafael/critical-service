@@ -1,12 +1,13 @@
 import styled from "styled-components";
-import {colors, layoutMaxWidth, spacing} from "../../../../styles/styleGuide";
+import {colors, layoutMaxWidthForCards, spacing} from "../../../../styles/styleGuide";
 
 export const StocksCardsContainer = styled.div`
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: ${layoutMaxWidth};
+  flex-wrap: wrap;
+  max-width: ${layoutMaxWidthForCards};
   margin-top: ${spacing.large};
 `

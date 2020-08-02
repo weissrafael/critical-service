@@ -77,4 +77,5 @@ export const transitions = {
 
 export const radius = '5px';
 
-export const layoutMaxWidth = '576px';
+export const layoutMaxWidth = '812px';
+export const layoutMaxWidthForCards = '830px';
