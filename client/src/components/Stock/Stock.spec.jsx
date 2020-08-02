@@ -1,6 +1,5 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import GetAppIcon from '@material-ui/icons/GetApp';
 
 import Stock from "./Stock";
 
@@ -12,7 +11,7 @@ describe("<Stock />", () => {
       basePrice: 0,
       subscribed: true
     }
-    const { container } = render(<Stock stock={{}}/>);
+    const { container } = render(<Stock stock={stock} viewMode={'cards'}/>);
     expect(container).toMatchSnapshot();
   });
 });

@@ -2,7 +2,7 @@ import React from "react";
 import { render } from "@testing-library/react";
 import GetAppIcon from '@material-ui/icons/GetApp';
 
-import StockToFollow from "./Stock";
+import StockToFollow from "./StockToFollow";
 
 describe("<Stock />", () => {
   it("should match snapshot", () => {
@@ -12,7 +12,7 @@ describe("<Stock />", () => {
       basePrice: 0,
       subscribed: true
     }
-    const { container } = render(<StockToFollow stock={{}}/>);
+    const { container } = render(<StockToFollow stock={stock} ticker={'IEX'}/>);
     expect(container).toMatchSnapshot();
   });
 });
