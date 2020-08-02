@@ -70,6 +70,12 @@ export const SettingsIconStyled = styled(SettingsIcon)`
 
 export const ViewModuleIconStyled = styled(ViewModuleIcon)`
   ${IconStyles}
+  -webkit-transform: rotate(90deg);
+  -moz-transform: rotate(90deg);
+  -ms-transform: rotate(90deg);
+  -o-transform: rotate(90deg);
+  transform: rotate(90deg);
+  
 `
 
 export const ViewListIconStyled = styled(ViewListIcon)`
