@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
 import {

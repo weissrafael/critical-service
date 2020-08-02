@@ -3,7 +3,6 @@ import { CREATE, successConnection } from "../reducers/connection";
 import {
   initialIngestStocks,
   updateStocks,
-  subscribeStock,
   HANDLE_STOCKS_UPDATES_EVENT,
 } from "../reducers/stocks";
 

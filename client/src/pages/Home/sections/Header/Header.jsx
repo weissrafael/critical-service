@@ -6,7 +6,6 @@ import {
   NavBar,
   NavBarContainer,
   SettingsIconStyled,
-  Title,
   ViewListIconStyled, ViewModuleIconStyled
 } from "./Header.style";
 import ConnectionStatus from "../../../../components/ConnectionStatus/ConnectionStatus";

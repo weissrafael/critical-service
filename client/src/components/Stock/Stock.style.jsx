@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {spacing, colors, text, fontWeights, layoutMaxWidth, shadows, screens} from "../../styles/styleGuide";
+import {spacing, colors, text, fontWeights, shadows, screens} from "../../styles/styleGuide";
 
 export const StockContainer = styled.div`
   display: flex;
