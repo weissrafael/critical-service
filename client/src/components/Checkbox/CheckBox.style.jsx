@@ -13,19 +13,19 @@ export const CheckIconStyle = styled(CheckIcon)`
   ${({ check }) => `
     font-size: 14px !important;
     color: ${check ? colors.white : colors.gray};
-    transition: all 0.3s ease-in-out;
+    transition: all 0.2s ease-in-out;
   `}  
 `
 
 export const CheckBoxStyle = styled.div`
-  ${({ check }) => `
+  ${({ check, bgColor }) => `
     width: 20px;
     height: 20px;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: ${check ? colors.byneBlue : colors.gray};
-    transition: all 0.3s ease-in-out;
+    background-color: ${!check ? colors.gray : bgColor ? bgColor : colors.byneBlue};
+    transition: all 0.2s ease-in-out;
   `}
 `

@@ -3,7 +3,7 @@ import useStocks from "../../hooks/useStocks";
 import {SettingsContainer, SettingsHeader, CompanyHeaderTitle, HeaderTitle} from "./Settings.style";
 import StockToFollow from "../StockToFollow";
 import CheckBox from "../Checkbox";
-import {spacing} from "../../styles/styleGuide";
+import {colors, spacing} from "../../styles/styleGuide";
 
 export default function Settings () {
   const [allChecked, setAllChecked] = useState(false);
@@ -18,14 +18,14 @@ export default function Settings () {
 
   return (
     <SettingsContainer>
-      <SettingsHeader onClick={()=> allChecked ? unsubscribe(supportedStocks) : subscribe(supportedStocks)}>
+      <SettingsHeader check={allChecked} onClick={()=> allChecked ? unsubscribe(supportedStocks) : subscribe(supportedStocks)}>
         <CompanyHeaderTitle>
           Company Name
         </CompanyHeaderTitle>
         <HeaderTitle>
           Ticker
         </HeaderTitle>
-          <CheckBox style={{marginRight: spacing.medium}} check={allChecked}/>
+        <CheckBox style={{marginRight: spacing.medium}} bgColor={colors.byneOrange} check={allChecked}/>
       </SettingsHeader>
       {supportedStocks.map(stock => {
         return (
