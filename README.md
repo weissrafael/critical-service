@@ -39,13 +39,19 @@ Follow the instructions in [https://docs.docker.com/compose/install/](https://do
 
 ## Setup
 
-After installing Node.js, npm, Docker and Docker Compose, go to the server folder and run: 
+After installing Node.js, npm, Docker and Docker Compose, clone the repository and go to the server folder:
+
+`git clone https://github.com/ronaldoronaldo/critical-service.git`
+
+`cd critical-service`
 
 `cd server`
 
+and run: 
+
 `npm install && cd ../client && npm install`
 
-Wait for the installation to finish, then run docker with:
+Wait for the installation to finish, then run docker (you might need sudo) with:
 
 `docker-compose up`
 
