@@ -3,6 +3,7 @@ import useStocks from "../../hooks/useStocks";
 import {SettingsContainer, SettingsHeader, CompanyHeaderTitle, HeaderTitle} from "./Settings.style";
 import StockToFollow from "../StockToFollow";
 import CheckBox from "../Checkbox";
+import {spacing} from "../../styles/styleGuide";
 
 export default function Settings () {
   const { stocks, supportedStocks, unsubscribe} = useStocks();
@@ -16,10 +17,10 @@ export default function Settings () {
         <HeaderTitle>
           Ticker
         </HeaderTitle>
-        <CheckBox/>
+          <CheckBox style={{marginRight: spacing.medium}}/>
       </SettingsHeader>
       {supportedStocks.map((stock, key) => {
-        // unsubscribe([stock])
+        unsubscribe([stock])
         return (
           <StockToFollow
             key={stock}
