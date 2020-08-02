@@ -2,8 +2,7 @@ import React from "react";
 import {CompanyName, Price, PriceBox, CardContainer, Ticker, ChartHeader, ChartContainer} from "./Stock.style";
 import RealTimeChart from "../RealTimeChart";
 
-export default function Card ({ companyName, symbol, profitStatus, price }) {
-  const stock = {companyName, symbol, basePrice: price};
+export default function Card ({ companyName, symbol, profitStatus, price, realTimePrice }) {
   return (
     <CardContainer>
       <ChartHeader>
@@ -20,7 +19,7 @@ export default function Card ({ companyName, symbol, profitStatus, price }) {
         </PriceBox>
       </ChartHeader>
       <ChartContainer>
-        <RealTimeChart stock={stock}/>
+        <RealTimeChart symbol={symbol} basePrice={realTimePrice} companyName={companyName}/>
       </ChartContainer>
     </CardContainer>
   )

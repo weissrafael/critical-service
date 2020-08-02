@@ -1,12 +1,13 @@
 import React, {useEffect, useRef, useState} from 'react';
 import Chartjs from 'chart.js';
 import {colors} from "../../styles/styleGuide";
-import {ChartContainer} from "./RealTimeChart.style";
 
-const RealTimeChart = ({stock}) => {
+const frameRate = 10;
+
+const RealTimeChart = ({symbol, companyName, basePrice}) => {
   const [chartInstance, setChartInstance] = useState(null);
+  const [speedReducer, setSpeedReducer] = useState(0);
   const [data, setData] = useState([]);
-  const {symbol, companyName, basePrice, subscribed} = stock;
   const chartContainer = useRef(null);
   const price = Math.trunc(basePrice);
 
@@ -76,7 +77,13 @@ const RealTimeChart = ({stock}) => {
   }
 
   useEffect(() => {
+    if(speedReducer <= frameRate){
+      setSpeedReducer(speedReducer + 1)
+    }
+    if(speedReducer > frameRate){
+      setSpeedReducer(0)
       updateData()
+    }
   }, [price]);
 
   return <canvas ref={chartContainer} />;

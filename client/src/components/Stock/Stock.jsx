@@ -7,13 +7,21 @@ import Card from "./Card";
 export default function Stock ({ stock, viewMode }) {
   const {symbol, companyName, basePrice, subscribed} = stock;
   const [profitStatus, setProfitStatus] = useState('neutral');
+  const price = Math.trunc(basePrice);
+
+  // Only this would be necessary if the server send events in a larger time slot:
+  // const previousPrice = usePrevious(price);
+  // useEffect(() => {
+  //   setProfitStatus(price >= previousPrice ? 'positive' : 'negative')
+  //   setTimeout(()=>{
+  //     setProfitStatus('neutral')
+  //   }, 400)
+  // }, [price]);
+
+  // All logic below should be back-end business:
   const [speedReducer, setSpeedReducer] = useState(0);
   const [frameRate, setFrameRate] = useState(12);
-  const price = Math.trunc(basePrice);
   const [oldPrice, setOldPrice] = useState(price);
-
-  // Only this would be necessary if the server send events in a larger time slot
-  // const previousPrice = usePrevious(price);
 
   useEffect(() => {
     if(speedReducer <= frameRate){
