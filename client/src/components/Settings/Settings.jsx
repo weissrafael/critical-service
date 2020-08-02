@@ -23,6 +23,7 @@ export default function Settings () {
         return (
           <StockToFollow
             key={stock}
+            ticker={stock}
             stock={stocks[stock]}
           />
         );

@@ -1,12 +1,18 @@
 import React from "react";
 import {CompanyName, StockRow, Ticker} from "./StockToFollow.style";
 import CheckBox from "../Checkbox";
+import useStocks from "../../hooks/useStocks";
 
-export default function StockToFollow ({ stock }) {
-  const {symbol, companyName, subscribed} = stock;
+export default function StockToFollow ({ stock, ticker }) {
+  const {symbol, companyName, subscribed } = stock;
+  const { unsubscribe, subscribe } = useStocks();
+
+  const handleClick = () => {
+    subscribed ? unsubscribe([ticker]): subscribe([ticker]);
+  }
 
   return (
-    <StockRow check={subscribed}>
+    <StockRow check={subscribed} onClick={handleClick}>
       <CompanyName check={subscribed}>
         {companyName}
       </CompanyName>

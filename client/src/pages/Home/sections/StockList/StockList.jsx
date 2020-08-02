@@ -19,7 +19,7 @@ export default function StockList() {
         </HeaderTitle>
       </StocksHeader>
       {supportedStocks.map((stock, key) => {
-        if (key>2) unsubscribe([stock])
+        if (key>0) unsubscribe([stock])
         return (
           <Stock
             key={stock}

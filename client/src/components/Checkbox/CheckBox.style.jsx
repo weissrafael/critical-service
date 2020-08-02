@@ -13,6 +13,7 @@ export const CheckIconStyle = styled(CheckIcon)`
   ${({ check }) => `
     font-size: 14px !important;
     color: ${check ? colors.white : colors.gray};
+    transition: all 0.3s ease-in-out;
   `}  
 `
 
@@ -25,5 +26,6 @@ export const CheckBoxStyle = styled.div`
     justify-content: center;
     align-items: center;
     background-color: ${check ? colors.byneBlue : colors.gray};
+    transition: all 0.3s ease-in-out;
   `}
 `

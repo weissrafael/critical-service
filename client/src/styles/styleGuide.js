@@ -13,7 +13,7 @@ export const colors = {
   white: '#ffffff',
   darkWhite: '#eeeeee',
   lightGray: '#dddddd',
-  gray: '#cccccc',
+  gray: '#bbbbbb',
 };
 
 export const fontWeights = {
