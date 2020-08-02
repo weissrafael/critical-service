@@ -1,14 +1,10 @@
-import React, {useEffect} from "react";
+import React from "react";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
 import {CompanyHeaderTitle, HeaderTitle, StocksContainer, StocksHeader} from "./StockList.style";
 
 export default function StockList() {
-  const { stocks, supportedStocks, subscribe, unsubscribe } = useStocks();
-
-  useEffect(() => {
-    unsubscribe(supportedStocks);
-  }, []);
+  const { stocks, supportedStocks } = useStocks();
 
   return (
     <StocksContainer>
@@ -23,9 +19,7 @@ export default function StockList() {
           Price
         </HeaderTitle>
       </StocksHeader>
-      {supportedStocks.map((stock, key) => {
-        // unsubscribe([stock])
-        // if (key>0) unsubscribe([stock])
+      {supportedStocks.map(stock => {
         return (
           <Stock
             key={stock}
