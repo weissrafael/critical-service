@@ -25,8 +25,8 @@ export const HeaderTitle = styled.span`
   flex-direction: row;
   justify-content: flex-start;
   
-  border-right: 1px solid ${colors.byneGray};
-  border-bottom: 1px solid ${colors.byneGray};
+  border-right: 1px solid ${colors.darkWhite};
+  border-bottom: 1px solid ${colors.darkWhite};
   padding: ${spacing.xSmall} ${spacing.small};
 `
 
