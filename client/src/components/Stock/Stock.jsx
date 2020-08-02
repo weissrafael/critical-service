@@ -2,17 +2,28 @@ import React, {useEffect, useState} from "react";
 import {CompanyName, Price, PriceBox, StockContainer, StockNames, Ticker} from "./Stock.style";
 import usePrevious from "../../hooks/usePrevious";
 
+
 export default function Stock ({ stock }) {
-  const [profitStatus, setProfitStatus] = useState('neutral');
   const {symbol, companyName, basePrice, subscribed} = stock;
+  const [profitStatus, setProfitStatus] = useState('neutral');
+  const [speedReducer, setSpeedReducer] = useState(0);
+  const [frameRate, setFrameRate] = useState(12);
   const price = Math.trunc(basePrice);
-  const previousPrice = usePrevious(price);
+  const [oldPrice, setOldPrice] = useState(price);
+  // const previousPrice = usePrevious(price);
 
   useEffect(() => {
-    if(price && previousPrice) {
-      setProfitStatus(price >= previousPrice ? 'positive' : 'negative')
+    if(speedReducer <= frameRate){
+      setSpeedReducer(speedReducer + 1)
+    }
+    if(speedReducer > frameRate){
+      setSpeedReducer(0)
+      setProfitStatus(price >= oldPrice ? 'positive' : 'negative')
       setTimeout(()=>{
         setProfitStatus('neutral')
+        setOldPrice(price)
+        if(frameRate<40) setFrameRate(40)
+        if(frameRate<70) setFrameRate(70)
       }, 400)
     }
   }, [price]);
@@ -29,7 +40,7 @@ export default function Stock ({ stock }) {
       </Ticker>
       <PriceBox profit={profitStatus}>
         <Price profit={profitStatus}>
-          {price}
+          {oldPrice}
         </Price>
       </PriceBox>
     </StockContainer>

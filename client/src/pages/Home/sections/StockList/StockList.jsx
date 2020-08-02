@@ -20,14 +20,14 @@ export default function StockList() {
           Price
         </HeaderPrice>
       </StocksHeader>
-      {/*{supportedStocks.map(stock => {*/}
-      {/*  return (*/}
-      {/*    <Stock*/}
-      {/*      key={stock}*/}
-      {/*      stock={stocks[stock]}*/}
-      {/*    />*/}
-      {/*  );*/}
-      {/*})}*/}
+      {supportedStocks.map(stock => {
+        return (
+          <Stock
+            key={stock}
+            stock={stocks[stock]}
+          />
+        );
+      })}
       {supportedStocks.map((stock, key) => {
         if(key !== 0) return null;
         return (

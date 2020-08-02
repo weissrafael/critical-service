@@ -36,7 +36,7 @@ export const PriceBox = styled(TableCell)`
                         colors.negative :
                         profit === 'positive' ?
                         colors.positive : colors.white};
-     transition: background-color ${profit !== 'neutral' ? '0.2s' : '0.6s'}; ease-out;
+     transition: background-color ${profit !== 'neutral' ? '0.3s' : '0.8s'}; ease-out;
   `}
 `
 
@@ -46,7 +46,7 @@ export const Price = styled.span`
      color: ${profit === 'neutral' ? colors.byneOrange : colors.white};
      font-weight: ${fontWeights.bold};
      font-size: ${text.paragraph};
-     transition: color ${profit !== 'neutral' ? '0s' : '0.6s'}; ease-out;
+     transition: color ${profit !== 'neutral' ? '0.1s' : '0.8s'}; ease-out;
   `}
 `
 

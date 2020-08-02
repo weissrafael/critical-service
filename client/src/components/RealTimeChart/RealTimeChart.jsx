@@ -69,7 +69,6 @@ const RealTimeChart = ({stock}) => {
       newData.shift();
     }
     setData(newData)
-    console.log('chart instance', chartInstance);
     if(chartInstance){
       chartInstance.data.datasets[0].data = newData;
       chartInstance.update();
