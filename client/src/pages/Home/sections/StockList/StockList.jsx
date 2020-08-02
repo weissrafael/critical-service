@@ -1,7 +1,7 @@
 import React from "react";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
-import {CompanyHeaderTitle, HeaderTitle, StocksContainer, StocksHeader} from "./StockList.style";
+import {CompanyHeaderTitle, HeaderPrice, HeaderTitle, StocksContainer, StocksHeader} from "./StockList.style";
 
 export default function StockList() {
   const { stocks, supportedStocks } = useStocks();
@@ -15,9 +15,9 @@ export default function StockList() {
         <HeaderTitle>
           Ticker
         </HeaderTitle>
-        <HeaderTitle>
+        <HeaderPrice>
           Price
-        </HeaderTitle>
+        </HeaderPrice>
       </StocksHeader>
       {supportedStocks.map(stock => {
         return (

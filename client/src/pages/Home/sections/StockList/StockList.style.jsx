@@ -33,3 +33,7 @@ export const HeaderTitle = styled.span`
 export const CompanyHeaderTitle = styled(HeaderTitle)`
   flex: 2;
 `
+
+export const HeaderPrice = styled(HeaderTitle)`
+  border-right: none;
+`

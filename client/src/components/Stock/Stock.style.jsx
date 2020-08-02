@@ -30,6 +30,7 @@ export const TableCell = styled.div`
 
 export const PriceBox = styled(TableCell)`
   ${({ profit }) => `
+      border-right: none;
      align-items: center;
      background-color: ${profit === 'negative' ?
                         colors.negative :
