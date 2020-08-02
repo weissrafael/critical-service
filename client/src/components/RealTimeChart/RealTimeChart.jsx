@@ -5,8 +5,6 @@ import {ChartContainer} from "./RealTimeChart.style";
 
 const RealTimeChart = ({stock}) => {
   const [chartInstance, setChartInstance] = useState(null);
-  const [speedReducer, setSpeedReducer] = useState(0);
-  const [frameRate, setFrameRate] = useState(10);
   const [data, setData] = useState([]);
   const {symbol, companyName, basePrice, subscribed} = stock;
   const chartContainer = useRef(null);
@@ -41,16 +39,16 @@ const RealTimeChart = ({stock}) => {
       },
       scales: {
         x: {
-          display: true,
+          display: false,
           scaleLabel: {
-            display: true,
-            labelString: 'Month'
+            display: false,
+            labelString: 'Time'
           }
         },
         y: {
-          display: true,
+          display: false,
           scaleLabel: {
-            display: true,
+            display: false,
             labelString: 'Value'
           }
         }
@@ -78,13 +76,7 @@ const RealTimeChart = ({stock}) => {
   }
 
   useEffect(() => {
-    if(speedReducer <= frameRate){
-      setSpeedReducer(speedReducer + 1)
-    }
-    if(speedReducer > frameRate){
-      setSpeedReducer(0)
       updateData()
-    }
   }, [price]);
 
   return (

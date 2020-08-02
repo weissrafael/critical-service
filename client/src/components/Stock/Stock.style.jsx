@@ -8,6 +8,20 @@ export const StockContainer = styled.div`
   width: 100%;
 `
 
+export const CardContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  border: 1px solid ${colors.byneOrange};
+`
+
+export const ChartHeader = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
+`
+
 export const StockNames = styled.div`
   display: flex;
   flex-direction: column;
