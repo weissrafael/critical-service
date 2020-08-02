@@ -3,6 +3,7 @@ import React, {useEffect, useState} from "react";
 import ListRow from "./ListRow";
 import Card from "./Card";
 
+const frameRate = 30;
 
 export default function Stock ({ stock, viewMode }) {
   const {symbol, companyName, basePrice, subscribed} = stock;
@@ -20,7 +21,6 @@ export default function Stock ({ stock, viewMode }) {
 
   // All logic below should be back-end business:
   const [speedReducer, setSpeedReducer] = useState(0);
-  const [frameRate, setFrameRate] = useState(12);
   const [oldPrice, setOldPrice] = useState(price);
 
   useEffect(() => {
@@ -33,18 +33,9 @@ export default function Stock ({ stock, viewMode }) {
       setTimeout(()=>{
         setProfitStatus('neutral')
         setOldPrice(price)
-        if(frameRate<60) setFrameRate(60)
       }, 400)
     }
   }, [price]);
-
-  useEffect(() => {
-    if (viewMode === 'cards') {
-      setFrameRate(15)
-    } else {
-      setFrameRate(60)
-    }
-  }, [viewMode]);
 
   if(!subscribed) return null;
 
