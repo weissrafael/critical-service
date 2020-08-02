@@ -5,16 +5,16 @@ import StockList from "./sections/StockList";
 import { MainWrapper } from "./Home.style";
 
 export default function Home() {
-  const [chartInstance, setChartInstance] = useState('cards');
+  const [viewMode, setViewMode] = useState('cards');
 
   const changeView = () => {
-    setChartInstance(chartInstance === 'cards' ? 'list' : 'cards')
+    setViewMode(viewMode === 'cards' ? 'list' : 'cards')
   }
 
   return (
     <MainWrapper>
-      <Header changeView={changeView}/>
-      {chartInstance === 'cards' ? (
+      <Header viewMode={viewMode} changeView={changeView}/>
+      {viewMode === 'cards' ? (
         <StockCards/>
       ) : (
         <StockList/>

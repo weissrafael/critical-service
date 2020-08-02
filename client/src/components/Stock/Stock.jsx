@@ -33,10 +33,18 @@ export default function Stock ({ stock, viewMode }) {
       setTimeout(()=>{
         setProfitStatus('neutral')
         setOldPrice(price)
-        if(frameRate<70) setFrameRate(70)
+        if(frameRate<60) setFrameRate(60)
       }, 400)
     }
   }, [price]);
+
+  useEffect(() => {
+    if (viewMode === 'cards') {
+      setFrameRate(15)
+    } else {
+      setFrameRate(60)
+    }
+  }, [viewMode]);
 
   if(!subscribed) return null;
 

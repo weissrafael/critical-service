@@ -1,6 +1,8 @@
 import styled from 'styled-components'
 import {fontWeights, text, spacing, colors, screens, layoutMaxWidth} from "../../../../styles/styleGuide";
 import SettingsIcon from '@material-ui/icons/Settings';
+import ViewModuleIcon from '@material-ui/icons/ViewModule';
+import ViewListIcon from '@material-ui/icons/ViewList';
 
 export const NavBar = styled.div`
   display: flex;
@@ -49,10 +51,11 @@ export const ButtonsWrapper = styled.div`
   display: flex;
 `
 
-export const SettingsIconStyled = styled(SettingsIcon)`
+const IconStyles = `
   margin-right: ${spacing.medium};
   cursor: pointer;
   color: ${colors.byneGray};
+  margin-left: ${spacing.medium};
   &:hover {
     color: ${colors.byneOrange};  
   }
@@ -60,3 +63,16 @@ export const SettingsIconStyled = styled(SettingsIcon)`
     margin-right: 0;
   }
 `
+
+export const SettingsIconStyled = styled(SettingsIcon)`
+  ${IconStyles}
+`
+
+export const ViewModuleIconStyled = styled(ViewModuleIcon)`
+  ${IconStyles}
+`
+
+export const ViewListIconStyled = styled(ViewListIcon)`
+  ${IconStyles}
+`
+
