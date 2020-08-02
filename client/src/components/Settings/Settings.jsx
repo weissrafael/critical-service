@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import useStocks from "../../hooks/useStocks";
-import {SettingsContainer, SettingsHeader, CompanyHeaderTitle, HeaderTitle} from "./Settings.style";
+import {SettingsContainer, SettingsHeader, CompanyHeaderTitle, HeaderTitle, SettingsBody} from "./Settings.style";
 import StockToFollow from "../StockToFollow";
 import CheckBox from "../Checkbox";
 import {colors, spacing} from "../../styles/styleGuide";
@@ -27,15 +27,17 @@ export default function Settings () {
         </HeaderTitle>
         <CheckBox style={{marginRight: spacing.medium}} bgColor={colors.byneOrange} check={allChecked}/>
       </SettingsHeader>
-      {supportedStocks.map(stock => {
-        return (
-          <StockToFollow
-            key={stock}
-            ticker={stock}
-            stock={stocks[stock]}
-          />
-        );
-      })}
+      <SettingsBody>
+        {supportedStocks.map(stock => {
+          return (
+            <StockToFollow
+              key={stock}
+              ticker={stock}
+              stock={stocks[stock]}
+            />
+          );
+        })}
+      </SettingsBody>
     </SettingsContainer>
   )
 }

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {colors, fontWeights, radius, spacing} from "../../styles/styleGuide";
+import {colors, fontWeights, radius, screens, spacing} from "../../styles/styleGuide";
 
 export const SettingsContainer = styled.div`
   display: flex;
@@ -10,7 +10,8 @@ export const SettingsContainer = styled.div`
   max-width: 576px;
   border-radius: ${radius};
   overflow: hidden;
-  background-color: ${colors.white};
+  background-color: ${colors.white};  
+  border: 1px solid ${colors.byneBlue};
 `
 
 export const SettingsHeader = styled.div`
@@ -25,6 +26,19 @@ export const SettingsHeader = styled.div`
   `}
 `
 
+export const SettingsBody = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 560px;
+  overflow-y: scroll;
+  @media (min-width: ${screens.medium}) {
+     height: auto;
+     overflow-y: hidden;
+  }
+  
+`
+
 export const CompanyHeaderTitle = styled.div`
   display: flex;
   flex-direction: row;
@@ -33,6 +47,9 @@ export const CompanyHeaderTitle = styled.div`
   margin-left: ${spacing.medium};
   font-weight: ${fontWeights.bold};
   color: ${colors.white};
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const HeaderTitle = styled.div`

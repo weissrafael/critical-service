@@ -1,17 +1,20 @@
 import styled from 'styled-components'
-import {spacing, colors, text, fontWeights} from "../../styles/styleGuide";
+import {spacing, colors, text, fontWeights, screens} from "../../styles/styleGuide";
 
 export const StockRow = styled.div`
   ${({ check }) => `
     display: flex;
     flex-direction: row;
     align-items: center;
-    width: 412px;
     cursor: pointer;
     padding: ${spacing.small} ${spacing.medium};
     background-color: ${check ? colors.darkWhite : colors.lightGray};
     border-bottom: 1px solid ${check ? colors.byneBlue : colors.gray};
     transition: all 0.2s ease-in-out;
+    width: 311px;
+    @media (min-width: ${screens.medium}) {
+      width: 412px;
+    }
   `}
 `
 
