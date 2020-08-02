@@ -17,6 +17,7 @@ export const SettingsHeader = styled.div`
   flex-direction: row;
   align-items: center;
   width: 100%;
+  cursor: pointer;
   padding: ${spacing.small} 0;
 `
 
