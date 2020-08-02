@@ -29,6 +29,12 @@ export const ChartContainer = styled.div`
   height: 100%;
   width: 100%;
 `
+export const CardBody = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: ${spacing.medium} ${spacing.medium} 2px ${spacing.small};
+`
 
 export const TableCell = styled.div`
   display: flex;
