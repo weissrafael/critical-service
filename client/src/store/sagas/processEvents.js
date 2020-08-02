@@ -14,7 +14,6 @@ function* createConnectionSaga({ event }) {
     stocks[stock.symbol] = { ...stock, subscribed: false };
   });
   yield put(initialIngestStocks(stocks, event.supportedSymbols));
-  yield put(subscribeStock(event.supportedSymbols));
 }
 
 function* updateStocksSaga({ event: { stocks: stocksToUpdate } }) {
