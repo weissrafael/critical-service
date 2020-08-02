@@ -76,6 +76,7 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
     }
   }
 
+  //Just like it is commented in Stock.js, the code below and its variables are only needed to slow down server events.
   useEffect(() => {
     if(speedReducer <= frameRate){
       setSpeedReducer(speedReducer + 1)

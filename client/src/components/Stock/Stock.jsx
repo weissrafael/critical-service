@@ -41,7 +41,7 @@ export default function Stock ({ stock, viewMode }) {
   if(!subscribed) return null;
 
   if(viewMode === 'cards') {
-    return <Card companyName={companyName} symbol={symbol} profitStatus={profitStatus} price={oldPrice}/>
+    return <Card companyName={companyName} symbol={symbol} profitStatus={profitStatus} price={oldPrice} realTimePrice={price}/>
   } else {
     return <ListRow companyName={companyName} symbol={symbol} profitStatus={profitStatus} price={oldPrice}/>
   }
