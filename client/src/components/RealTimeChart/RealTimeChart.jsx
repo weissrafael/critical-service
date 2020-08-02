@@ -69,7 +69,7 @@ const RealTimeChart = ({basePrice}) => {
     const first = newData[0];
     const last = newData[newData.length - 1];
     let color = colors.positive;
-    if (newData.length > 20) {
+    if (newData.length > 13) {
       newData.shift();
     }
     if(last < first) {
