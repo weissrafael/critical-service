@@ -1,5 +1,15 @@
 import React from "react";
-import {CompanyName, Price, PriceBox, CardContainer, Ticker, ChartHeader, ChartContainer, CardBody} from "./Stock.style";
+import {
+  CompanyName,
+  Price,
+  PriceBox,
+  CardContainer,
+  Ticker,
+  ChartHeader,
+  ChartContainer,
+  CardBody,
+  Cell
+} from "./Stock.style";
 import RealTimeChart from "../RealTimeChart";
 
 export default function Card ({ companyName, symbol, profitStatus, price }) {
@@ -7,7 +17,9 @@ export default function Card ({ companyName, symbol, profitStatus, price }) {
     <CardContainer>
       <ChartHeader>
         <CompanyName>
-          {companyName}
+          <Cell>
+            {companyName}
+          </Cell>
         </CompanyName>
         <Ticker>
           {symbol}

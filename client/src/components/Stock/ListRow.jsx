@@ -1,11 +1,13 @@
 import React from "react";
-import {CompanyName, Price, PriceBox, StockContainer, Ticker} from "./Stock.style";
+import {Cell, CompanyName, Price, PriceBox, StockContainer, Ticker} from "./Stock.style";
 
 export default function Stock ({ companyName, symbol, profitStatus, price }) {
   return (
     <StockContainer>
       <CompanyName>
-        {companyName}
+        <Cell>
+          {companyName}
+        </Cell>
       </CompanyName>
       <Ticker>
         {symbol}

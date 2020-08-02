@@ -48,15 +48,21 @@ export const TableCell = styled.div`
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   align-items: center;
   border-right: 1px solid ${colors.darkWhite};
   border-bottom: 1px solid ${colors.darkWhite};
   height: 32px;
   white-space: nowrap;
   overflow: hidden;
-  text-overflow: ellipsis;
   padding: ${spacing.xSmall} ${spacing.small};
+`
+
+export const Cell = styled.div`
+  width: 100%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 `
 
 export const PriceBox = styled(TableCell)`
@@ -90,5 +96,6 @@ export const Ticker = styled(TableCell)`
 export const CompanyName = styled(TableCell)`
   font-size: ${text.paragraph};
   color: ${colors.primaryText};
+  justify-content: flex-start;
   flex: 2;
 `

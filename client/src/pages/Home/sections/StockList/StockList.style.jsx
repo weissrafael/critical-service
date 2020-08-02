@@ -74,7 +74,7 @@ export const HeaderTitle = styled.span`
   display: flex;
   flex: 1;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: flex-end;
   
   border-right: 1px solid ${colors.darkWhite};
   border-bottom: 1px solid ${colors.darkWhite};
@@ -83,6 +83,7 @@ export const HeaderTitle = styled.span`
 
 export const CompanyHeaderTitle = styled(HeaderTitle)`
   flex: 2;
+  justify-content: flex-start;
 `
 
 export const HeaderPrice = styled(HeaderTitle)`
