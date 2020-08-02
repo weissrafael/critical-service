@@ -26,5 +26,9 @@ export const Label = styled.span`
   ${({ connected }) => `
     font-size: ${text.paragraph};
     color: ${connected ? colors.positive : colors.negative};
+    display: none;
+    @media (min-width: ${screens.medium}) {
+      display: flex;
+    }
   `}
 `
