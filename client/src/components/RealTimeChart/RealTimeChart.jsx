@@ -21,6 +21,10 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
       }]
     },
     options: {
+      animation: {
+        easing: 'easeOutExpo',
+        duration: 200
+      },
       responsive: true,
       title: {
         display: false,
