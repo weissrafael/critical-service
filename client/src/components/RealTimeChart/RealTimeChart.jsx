@@ -2,11 +2,8 @@ import React, {useEffect, useRef, useState} from 'react';
 import Chartjs from 'chart.js';
 import {colors} from "../../styles/styleGuide";
 
-const frameRate = 10;
-
 const RealTimeChart = ({symbol, companyName, basePrice}) => {
   const [chartInstance, setChartInstance] = useState(null);
-  const [speedReducer, setSpeedReducer] = useState(0);
   const [data, setData] = useState([]);
   const chartContainer = useRef(null);
   const price = Math.trunc(basePrice);
@@ -16,11 +13,11 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
     data: {
       labels: ['60s', '55s', '50s', '45s', '40s', '35s', '30s', '25s', '20s', '15s', '10s', '5s', '0s'],
       datasets: [{
-        label: symbol,
-        backgroundColor: colors.byneBlue,
-        borderColor: colors.byneBlue,
+        backgroundColor: colors.positive,
+        borderColor: colors.positive,
         data: data,
         fill: false,
+        pointRadius: 0,
       }]
     },
     options: {
@@ -38,21 +35,20 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
         mode: 'nearest',
         intersect: true
       },
+      legend: {
+        display: false
+      },
       scales: {
-        x: {
-          display: false,
-          scaleLabel: {
-            display: false,
-            labelString: 'Time'
+        xAxes: [{
+          gridLines: {
+            display: false
           }
-        },
-        y: {
-          display: false,
-          scaleLabel: {
-            display: false,
-            labelString: 'Value'
+        }],
+        yAxes: [{
+          gridLines: {
+            display: false
           }
-        }
+        }]
       }
     }
   };
@@ -66,25 +62,30 @@ const RealTimeChart = ({symbol, companyName, basePrice}) => {
 
   const updateData = () => {
     const newData = [...data, price];
+    const first = newData[0];
+    const last = newData[newData.length - 1];
+    let color = colors.positive;
     if (newData.length > 20) {
       newData.shift();
     }
+    if(last < first) {
+      color = colors.negative;
+    }
     setData(newData)
     if(chartInstance){
-      chartInstance.data.datasets[0].data = newData;
+      chartInstance.data.datasets[0] = {
+        backgroundColor: color,
+        borderColor: color,
+        data: newData,
+        fill: false,
+        pointRadius: 0,
+      };
       chartInstance.update();
     }
   }
 
-  //Just like it is commented in Stock.js, the code below and its variables are only needed to slow down server events.
   useEffect(() => {
-    if(speedReducer <= frameRate){
-      setSpeedReducer(speedReducer + 1)
-    }
-    if(speedReducer > frameRate){
-      setSpeedReducer(0)
-      updateData()
-    }
+    updateData()
   }, [price]);
 
   return <canvas ref={chartContainer} />;
