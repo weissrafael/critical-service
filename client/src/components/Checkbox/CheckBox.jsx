@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from 'prop-types'
 import {CheckBoxStyle, CheckBoxWrapper, CheckIconStyle} from "./CheckBox.style";
 
 export default function CheckBox ({ check, style, bgColor }) {
@@ -11,3 +12,8 @@ export default function CheckBox ({ check, style, bgColor }) {
   )
 }
 
+CheckBox.proptypes = {
+  check: PropTypes.bool.isRequired,
+  style: PropTypes.object,
+  bgColor: PropTypes.string
+}

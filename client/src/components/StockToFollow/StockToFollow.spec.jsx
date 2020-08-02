@@ -1,8 +1,8 @@
 import React from "react";
 import { render } from "@testing-library/react";
-import GetAppIcon from '@material-ui/icons/GetApp';
-
 import StockToFollow from "./StockToFollow";
+import {Provider} from "react-redux";
+import {createMockedStore} from "../../utils/testMocks";
 
 describe("<Stock />", () => {
   it("should match snapshot", () => {
@@ -12,7 +12,12 @@ describe("<Stock />", () => {
       basePrice: 0,
       subscribed: true
     }
-    const { container } = render(<StockToFollow stock={stock} ticker={'IEX'}/>);
+    const store = createMockedStore();
+    const { container } = render(
+      <Provider store={store}>
+        <StockToFollow stock={stock} ticker={'IEX'}/>
+      </Provider>
+    );
     expect(container).toMatchSnapshot();
   });
 });

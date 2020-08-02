@@ -1,6 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
 import { subscribeStock, unsubscribeStock } from "../store/reducers/stocks";
-import {useEffect} from "react";
 
 export default function useStocks() {
   const dispatch = useDispatch();
