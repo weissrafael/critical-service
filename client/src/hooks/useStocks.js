@@ -5,10 +5,10 @@ import {useEffect} from "react";
 export default function useStocks() {
   const dispatch = useDispatch();
   const { stocks, supportedStocks } = useSelector((store) => store.stocks);
-  const unsubscribedStocks = supportedStocks.filter(stock => {
-    return !stocks[stock].subscribed;
+  const subscribedStocks = supportedStocks.filter(stock => {
+    return stocks[stock].subscribed;
   });
-  const noStocksSubscribed = unsubscribedStocks.length > 0;
+  const noStocksSubscribed = subscribedStocks.length === 0;
 
   function subscribe(stocksName) {
     dispatch(subscribeStock(stocksName));

@@ -1,5 +1,14 @@
 import styled from "styled-components";
-import {colors, fontWeights, layoutMaxWidth, radius, screens, spacing, text} from "../../../../styles/styleGuide";
+import {
+  colors,
+  fontWeights,
+  layoutMaxWidth,
+  layoutMaxWidthForCards,
+  radius,
+  screens,
+  spacing,
+  text
+} from "../../../../styles/styleGuide";
 
 export const StocksContainer = styled.div`
   display: flex;
@@ -39,6 +48,19 @@ export const WarningBannerContent = styled.div`
     padding: ${spacing.medium};
   }
 `
+
+
+export const StocksCardsContainer = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  flex-wrap: wrap;
+  max-width: ${layoutMaxWidthForCards};
+  margin-top: ${spacing.large};
+`
+
 
 export const StocksHeader = styled.div`
   display: flex;

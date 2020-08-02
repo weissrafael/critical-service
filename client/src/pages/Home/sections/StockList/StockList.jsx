@@ -7,10 +7,10 @@ import {
   HeaderTitle,
   StocksContainer,
   StocksHeader,
-  WarningBanner, WarningBannerContent
+  WarningBanner, WarningBannerContent, StocksCardsContainer
 } from "./StockList.style";
 
-export default function StockList() {
+export default function StockList({viewMode}) {
   const { stocks, supportedStocks, noStocksSubscribed } = useStocks();
 
   if (noStocksSubscribed) {
@@ -21,6 +21,22 @@ export default function StockList() {
         </WarningBannerContent>
       </WarningBanner>
     )
+  }
+
+  if(viewMode === 'cards') {
+    return (
+      <StocksCardsContainer>
+        {supportedStocks.map(stock => {
+          return (
+            <Stock
+              key={stock}
+              stock={stocks[stock]}
+              viewMode={'cards'}
+            />
+          );
+        })}
+      </StocksCardsContainer>
+    );
   }
 
   return (
