@@ -10,11 +10,8 @@ export const CheckBoxWrapper = styled.div`
 `
 
 export const CheckIconStyle = styled(CheckIcon)`
-  ${({ check }) => `
-    font-size: 14px !important;
-    color: ${check ? colors.white : colors.gray};
-    transition: all 0.2s ease-in-out;
-  `}  
+  font-size: 14px !important;
+  transition: all 0.2s ease-in-out;
 `
 
 export const CheckBoxStyle = styled.div`
@@ -27,5 +24,8 @@ export const CheckBoxStyle = styled.div`
     align-items: center;
     background-color: ${!check ? colors.gray : bgColor ? bgColor : colors.byneBlue};
     transition: all 0.2s ease-in-out;
+    :first-child {
+       color: ${check ? colors.white : colors.gray};
+    }
   `}
 `

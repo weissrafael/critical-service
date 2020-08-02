@@ -5,7 +5,7 @@ export default function CheckBox ({ check, style, bgColor }) {
   return (
     <CheckBoxWrapper style={style}>
       <CheckBoxStyle check={check} bgColor={bgColor}>
-        <CheckIconStyle check={check}/>
+        <CheckIconStyle/>
       </CheckBoxStyle>
     </CheckBoxWrapper>
   )
