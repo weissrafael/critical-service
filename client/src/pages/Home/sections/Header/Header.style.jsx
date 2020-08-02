@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import {fontWeights, text, spacing, colors, screens} from "../../../../styles/styleGuide";
+import SettingsIcon from '@material-ui/icons/Settings';
 
 export const NavBar = styled.div`
   display: flex;
@@ -27,6 +28,11 @@ export const LogoContainer = styled.div`
 export const Logo = styled.img`
   width: auto;
   height: 64px;
+  position: relative;
+  left: 0;
+  @media (min-width: ${screens.medium}) {
+    left: -11px;
+  }
 `
 
 export const Title = styled.span`
@@ -41,4 +47,16 @@ export const Title = styled.span`
 
 export const ButtonsWrapper = styled.div`
   display: flex;
+`
+
+export const SettingsIconStyled = styled(SettingsIcon)`
+  margin-right: ${spacing.medium};
+  cursor: pointer;
+  color: ${colors.byneGray};
+  &:hover {
+    color: ${colors.byneOrange};  
+  }
+  @media (min-width: ${screens.medium}) {
+    margin-right: 0;
+  }
 `

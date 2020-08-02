@@ -1,6 +1,5 @@
 import React, {useState} from "react";
-import {ButtonsWrapper, Logo, LogoContainer, NavBar, NavBarContainer, Title} from "./Header.style";
-import SettingsIcon from '@material-ui/icons/Settings';
+import {ButtonsWrapper, Logo, LogoContainer, NavBar, NavBarContainer, SettingsIconStyled, Title} from "./Header.style";
 import ConnectionStatus from "../../../../components/ConnectionStatus/ConnectionStatus";
 import useWebsocket from "../../../../hooks/useWebsocket";
 import logo from '../../../../assets/images/logo.png'
@@ -17,7 +16,7 @@ export default function () {
         <Logo src={logo}/>
         <ConnectionStatus connected={connected}/>
         <ButtonsWrapper>
-          <SettingsIcon onClick={() => setSettingsIsOpen(true)}/>
+          <SettingsIconStyled onClick={() => setSettingsIsOpen(true)}/>
         </ButtonsWrapper>
       </NavBarContainer>
       <AnimatedModal

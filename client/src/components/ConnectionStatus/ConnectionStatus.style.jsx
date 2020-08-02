@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {colors, spacing, text} from "../../styles/styleGuide";
+import {colors, screens, spacing, text} from "../../styles/styleGuide";
 
 export const ConnectionWrapper = styled.div`
   display: flex;
@@ -16,6 +16,9 @@ export const ColoredCircle = styled.div`
     margin-left: ${spacing.medium};
     border-radius: 50%;
     background-color: ${connected ? colors.positive : colors.negative};
+    @media (min-width: ${screens.medium}) {
+      margin-left: ${spacing.small};
+    }
   `}
 `
 

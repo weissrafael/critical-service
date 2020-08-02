@@ -10,8 +10,7 @@ export const SettingsContainer = styled.div`
   max-width: 576px;
   border-radius: ${radius};
   overflow: hidden;
-  background-color: ${colors.white};  
-  border: 1px solid ${colors.byneBlue};
+  background-color: ${colors.white};
 `
 
 export const SettingsHeader = styled.div`
