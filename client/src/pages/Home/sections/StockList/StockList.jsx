@@ -13,7 +13,7 @@ export default function StockList() {
           Company Name
         </CompanyHeaderTitle>
         <HeaderTitle>
-          Stock Ticker
+          Ticker
         </HeaderTitle>
         <HeaderTitle>
           Price
