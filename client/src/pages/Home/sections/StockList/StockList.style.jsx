@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import {colors, spacing, text} from "../../../../styles/styleGuide";
+import {colors, layoutMaxWidth, spacing, text} from "../../../../styles/styleGuide";
 
 export const StocksContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const StocksContainer = styled.div`
   align-items: center;
   justify-content: flex-start;
   width: 100%;
-  max-width: 576px;
+  max-width: ${layoutMaxWidth};
   margin-top: ${spacing.large};
 `
 

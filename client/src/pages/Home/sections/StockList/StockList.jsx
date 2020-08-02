@@ -2,6 +2,7 @@ import React from "react";
 import useStocks from "../../../../hooks/useStocks";
 import Stock from "../../../../components/Stock";
 import {CompanyHeaderTitle, HeaderPrice, HeaderTitle, StocksContainer, StocksHeader} from "./StockList.style";
+import RealTimeChart from "../../../../components/RealTimeChart";
 
 export default function StockList() {
   const { stocks, supportedStocks } = useStocks();
@@ -19,9 +20,18 @@ export default function StockList() {
           Price
         </HeaderPrice>
       </StocksHeader>
-      {supportedStocks.map(stock => {
+      {/*{supportedStocks.map(stock => {*/}
+      {/*  return (*/}
+      {/*    <Stock*/}
+      {/*      key={stock}*/}
+      {/*      stock={stocks[stock]}*/}
+      {/*    />*/}
+      {/*  );*/}
+      {/*})}*/}
+      {supportedStocks.map((stock, key) => {
+        if(key !== 0) return null;
         return (
-          <Stock
+          <RealTimeChart
             key={stock}
             stock={stocks[stock]}
           />

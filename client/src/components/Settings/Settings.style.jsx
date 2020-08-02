@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {colors, fontWeights, radius, screens, spacing} from "../../styles/styleGuide";
+import {colors, fontWeights, layoutMaxWidth, radius, screens, spacing} from "../../styles/styleGuide";
 
 export const SettingsContainer = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const SettingsContainer = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  max-width: 576px;
+  max-width: ${layoutMaxWidth};
   border-radius: ${radius};
   overflow: hidden;
   background-color: ${colors.white};

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import {fontWeights, text, spacing, colors, screens} from "../../../../styles/styleGuide";
+import {fontWeights, text, spacing, colors, screens, layoutMaxWidth} from "../../../../styles/styleGuide";
 import SettingsIcon from '@material-ui/icons/Settings';
 
 export const NavBar = styled.div`
@@ -14,7 +14,7 @@ export const NavBar = styled.div`
 export const NavBarContainer = styled.div`
   display: flex;
   width: 100%;
-  max-width: 576px;
+  max-width: ${layoutMaxWidth};
   justify-content: space-between;
   align-items: center;
 `
