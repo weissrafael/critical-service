@@ -30,7 +30,7 @@ export const SettingsBody = styled.div`
   flex-direction: column;
   width: 100%;
   height: 560px;
-  overflow-y: scroll;Table responsive
+  overflow-y: scroll;
   @media (min-width: ${screens.medium}) {
      height: auto;
      overflow-y: hidden;
